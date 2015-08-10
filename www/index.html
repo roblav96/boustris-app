@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+
+    <title>Boustris Inspection Report</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <!-- <link href="css/main_lDPI.css" rel="stylesheet" type="text/css" > -->
+    <link href="css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default navbar-fixed-top hidden">
+        <div class="container">
+            <ul class="nav navbar-nav">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="glyphicon glyphicon-th-list"></span> Navigation
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="#coverpage">Cover Page</a>
+                        </li>
+                        <li>
+                            <a href="#report_info">Report Info</a>
+                        </li>
+                        <li>
+                            <a href="#system_circ">System Circuit Type</a>
+                        </li>
+                        <li>
+                            <a href="#cp_f">Control Panel Functions</a>
+                        </li>
+                        <li>
+                            <a href="#cp_af">&nbsp;&nbsp;&nbsp;&nbsp;Activation Functions</a>
+                        </li>
+                        <li>
+                            <a href="#cp_sf">&nbsp;&nbsp;&nbsp;&nbsp;Supervisory Functions</a>
+                        </li>
+                        <li>
+                            <a href="#cp_sp">&nbsp;&nbsp;&nbsp;&nbsp;Signaling Properties</a>
+                        </li>
+                        <li>
+                            <a href="#cp_mn">&nbsp;&nbsp;&nbsp;&nbsp;Municipal Notification</a>
+                        </li>
+                        <li>
+                            <a href="#cp_ps">&nbsp;&nbsp;&nbsp;&nbsp;Power Source</a>
+                        </li>
+                        <li>
+                            <a href="#af">Auxiliary Functions</a>
+                        </li>
+                        <li>
+                            <a href="#ada">ADA Booster Panel</a>
+                        </li>
+                        <li>
+                            <a href="#fp">Fire Pump</a>
+                        </li>
+                        <li>
+                            <a href="#sps">Sprinkler System</a>
+                        </li>
+                        <li>
+                            <a href="#ves">Voice Evacuation System</a>
+                        </li>
+                        <li>
+                            <a href="#dd">Current Deficiencies</a>
+                        </li>
+                        <li>
+                            <a href="#nr">Notes and Recommendations</a>
+                        </li>
+                        <li>
+                            <a href="#dh">Deficiencies History</a>
+                        </li>
+                        <li>
+                            <a href="#ds">Devices</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="glyphicon glyphicon-th-list"></span> File
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a id="btn_save">
+                                <span class="glyphicon glyphicon-floppy-disk"></span> Save</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a id="btn_exit">
+                                <span class="glyphicon glyphicon-remove"></span> Close</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button">
+                        <span class="glyphicon glyphicon-wrench"></span> Actions
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a id="btn_set_date">
+                                <span class="glyphicon glyphicon-calendar"></span> Set Date to Today</a>
+                        </li>
+                        <li>
+                            <a id="add_all_model_btn">
+                                <span class="glyphicon glyphicon-plus"></span> Add All Deficiencies To History</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="add_btn">
+                        <span class="glyphicon glyphicon-plus"></span> Add Device</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div id="upload">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h3 id="upload_title" class="panel-title">
+                                <span class="glyphicon glyphicon-folder-open"></span> Open File...
+
+                                <button id="btn_close_two" class="btn btn-warning btn-lg">
+                                    <span class="glyphicon glyphicon-refresh"></span> Refresh List
+                                </button>
+                            </h3>
+
+                        </div>
+                        <div class="panel-body">
+
+
+                            <ul id="li_files" class="list-group">
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="main" class="hidden">
+
+
+
+        <div id="coverpage" class="container-fluid padding_b">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8">
+                    <center>
+                        <img src="img/coverlogo.png" class="img-responsive">
+                    </center>
+                </div>
+                <div class="col-xs-3 col-xs-offset-3">
+                    <h4>
+                        Tel: (617) 789-4488
+                        <br> Fax: (617) 789-4339
+                    </h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right">
+                        49 Clarendon Street
+                        <br> Watertown, MA 02472
+                    </h4>
+                </div>
+                <div class="col-xs-12">
+                    <h4 class="text-center">
+                        MA LIC#
+                        <span class="dyn license"></span>
+                    </h4>
+                </div>
+
+                <div class="col-xs-10 col-xs-offset-1 margin_t150 padding_b">
+                    <h2 class="text-center dyn quarter"></h2>
+                    <h1 class="text-center fire">Fire Alarm Testing and Inspection Report</h1>
+                    <h3 class="text-center dyn date"></h3>
+                    <h3 class="text-center dyn property"></h3>
+                    <h3 class="text-center dyn street"></h3>
+                    <h3 class="text-center">
+                        <span class="dyn city"></span>,
+                        <span class="dyn state"></span>,
+                        <span class="dyn zip"></span>
+                    </h3>
+                    <br>
+                    <h3 class="text-center dyn inspector"></h3>
+                    <h3 class="text-center">MA License &ndash;
+                        <span class="dyn license"></span>
+                    </h3>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div id="reportpage" class="canvas_print container-fluid">
+
+
+
+            <div class="row header page_br">
+                <div class="col-xs-3">
+                    <img src="img/logo.png" height="68">
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center dyn property bold"></h4>
+                    <h4 class="text-center dyn quarter"></h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right dyn date"></h4>
+                    <h4 class="text-right">Page 1</h4>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <div class="col-xs-5">
+                    <img src="img/coverlogo.png" class="img-responsive">
+                </div>
+                <div class="col-xs-7">
+                    <h1 class="text-right fire">Fire Alarm Inspection Report</h1>
+                    <h2 class="text-right dyn quarter"></h2>
+                    <h3 class="text-right dyn date"></h3>
+                </div>
+            </div>
+
+
+            <div id="report_info" class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Report Information</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Property Information</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-4 text-right">
+                                                    <strong>Management</strong>
+                                                    <br>
+                                                    <br>
+                                                    <strong>Property</strong>
+                                                    <br>
+                                                    <strong>Address</strong>
+                                                    <br>
+                                                    <strong>City</strong>
+                                                    <br>
+                                                    <strong>State</strong>
+                                                    <br>
+                                                    <strong>Zip</strong>
+                                                </div>
+                                                <div class="col-xs-8 text-left">
+                                                    <span class="dyn customer"></span>
+                                                    <br>
+                                                    <br>
+                                                    <span class="dyn property"></span>
+                                                    <br>
+                                                    <span class="dyn street"></span>
+                                                    <br>
+                                                    <span class="dyn city"></span>
+                                                    <br>
+                                                    <span class="dyn state"></span>
+                                                    <br>
+                                                    <span class="dyn zip"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-3">
+                                    <dl>
+                                        <dt>Inspection Date</dt>
+                                        <dd>
+                                            <span class="dyn date"></span>
+                                        </dd>
+                                    </dl>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <dl>
+                                        <dt>Inspector</dt>
+                                        <dd>
+                                            <span class="dyn inspector"></span>
+                                        </dd>
+                                    </dl>
+                                </div>
+
+                                <div class="col-xs-1">
+                                    <dl>
+                                        <dt>License</dt>
+                                        <dd>
+                                            <span class="dyn license"></span>
+                                        </dd>
+                                    </dl>
+                                </div>
+
+
+                                <div class="col-xs-3">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Inspection Type</h3>
+                                        </div>
+                                        <ul class="list-group">
+                                            <li class="list-group-item dyn inspection_type_quarter">Quarterly
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                            <li class="list-group-item dyn inspection_type_semiannual">Semi-Annual
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                            <li class="list-group-item dyn inspection_type_annual">Annual
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                            <li class="list-group-item dyn inspection_type_other">Other
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                            <li class="list-group-item dyn inspection_type_elevator">Annual State Elevator
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">System Type</h3>
+                                        </div>
+                                        <ul class="list-group">
+                                            <li class="list-group-item dyn system_type_fire">Fire Alarm
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                            <li class="list-group-item dyn system_type_evac">E-VAC/COMM
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                            <li class="list-group-item dyn system_type_line">Line Voltage
+                                                <span class="badge badge-primary">
+                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div id="system_circ" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">System Circuit Type</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+
+                                <div class="col-xs-5">
+                                    <ul class="list-group">
+                                        <li class="list-group-item dyn circuit_address">Addressable
+                                            <span class="badge badge-primary">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            </span>
+                                        </li>
+                                        <li class="list-group-item dyn circuit_conventional">Conventional
+                                            <span class="badge badge-primary">
+                                                <span class="glyphicon glyphicon-ok"></span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-xs-7">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Local Authority Having Jurisdiction</h3>
+                                        </div>
+                                        <div class="panel-body dyn authority"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row header page_br">
+                <div class="col-xs-3">
+                    <img src="img/logo.png" height="68">
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center dyn property bold"></h4>
+                    <h4 class="text-center dyn quarter"></h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right dyn date"></h4>
+                    <h4 class="text-right">Page 2</h4>
+                </div>
+            </div>
+
+
+            <div class="row">
+
+                <div id="cp_f" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Control Panel Functions</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Manufacture</h3>
+                                        </div>
+                                        <div class="panel-body dyn manufacture"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-2">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Model No.</h3>
+                                        </div>
+                                        <div class="panel-body dyn model_no"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">No. Detection Circuits / Slc Loops</h3>
+                                        </div>
+                                        <div class="panel-body dyn detection_circuits"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">No. Indication Circuits</h3>
+                                        </div>
+                                        <div class="panel-body dyn indication_circuits"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                            <div id="cp_af" class="row">
+
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Activation Functions</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Each Zone Tested / Address</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn each_zone">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Proper Zone Activation / Address</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn proper_zone">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Proper Ground Fault Monitoring</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn proper_fagp">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Proper Annunciation</h3>
+                                                        </div>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item dyn proper_annunc">
+                                                                <span class="glyphicon"></span>
+                                                                <span class="toggle"></span>
+                                                            </li>
+                                                            <li class="list-group-item disabled">Location:</li>
+                                                            <li class="list-group-item dyn proper_annunc_loc"></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+
+
+
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Trouble Signal Activation</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_trouble_sig">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Supervisory Signal Activation</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_super_sig">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Function Test</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_func_test">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Trouble Self Restoration</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_troub_self">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">NAC&#47;Signal Circuits Supervised</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_nac_sig">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Initiating Zones SLC Loop Supervised</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_init_zones">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Alarm Restoration</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_alarm_rest">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Supervisory Self Restoration</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn act_super_rest">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div id="cp_sf" class="row">
+
+
+
+
+
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Supervisory Functions</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Zone Trouble</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn zone_trouble">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Signal Trouble</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn signal_trouble">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">A&#47;C Loss</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn ac_loss">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Battery Failure</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn battery_failure">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Earth Ground</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn earth_ground">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div id="cp_sp" class="row">
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Signaling Properties</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+
+                                                <div class="col-xs-4">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Signaling Type</h3>
+                                                        </div>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item dyn all_sound">All Sound
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn coded">Coded
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn selective">Selective
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn march_time">March Time
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-xs-4">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Signaling Means</h3>
+                                                        </div>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item dyn horn_strobe">Horn&#47;Strobe
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn bells">Bells
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn horn">Horn
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn speakers">Speakers&#47;Strobes
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn ext_beacon">Exterior Beacon
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col-xs-4">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Evacuation Paging System</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn evac_paging">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Internal Communication System</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn internal_comm">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Exterior Beacon Location</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn ext_beacon_loc"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row header page_br">
+                <div class="col-xs-3">
+                    <img src="img/logo.png" height="68">
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center dyn property bold"></h4>
+                    <h4 class="text-center dyn quarter"></h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right dyn date"></h4>
+                    <h4 class="text-right">Page 3</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Control Panel Functions (continued)</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div id="cp_mn" class="row">
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Municipal Notification</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Tested</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn tested">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Master Box</h3>
+                                                        </div>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item dyn master_box">
+                                                                <span class="glyphicon"></span>
+                                                                <span class="toggle"></span>
+                                                            </li>
+                                                            <li class="list-group-item dyn master_box_acct"></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-4">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Central Station Comp.</h3>
+                                                        </div>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item dyn central_station">
+                                                                <span class="glyphicon"></span>
+                                                                <span class="toggle"></span>
+                                                            </li>
+                                                            <li class="list-group-item dyn central_station_acct"></li>
+                                                        </ul>
+                                                    </div>
+
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Other Means</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn other_means"></div>
+                                                    </div>
+
+
+
+
+                                                    <div id="comm_info" class="panel panel-warning">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Communicator Information</h3>
+                                                        </div>
+                                                        <div class="panel-body">
+                                                            <ul class="list-group">
+                                                                <li class="list-group-item disabled">Manufacture</li>
+                                                                <li class="list-group-item dyn comm_manuf"></li>
+                                                                <li class="list-group-item disabled">Model Number</li>
+                                                                <li class="list-group-item dyn comm_model"></li>
+                                                                <li class="list-group-item disabled">Telephone Numbers</li>
+                                                                <li class="list-group-item dyn comm_tele_p"></li>
+                                                                <li class="list-group-item dyn comm_tele_s"></li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-3">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Type of Communicator</h3>
+                                                        </div>
+                                                        <ul class="list-group">
+                                                            <li class="list-group-item dyn com_typ_cell">Cellular
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn com_typ_tele">Telephone
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                            <li class="list-group-item dyn com_typ_built">Built In
+                                                                <span class="badge badge-primary">
+                                                                    <span class="glyphicon glyphicon-ok"></span>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div id="cp_ps" class="row">
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Power Source</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">C.B. Location</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn cp_cb_location"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Dedicated C.B.</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn dedicated_cb">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Batteries</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn batteries">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Volt W&#47;Load</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn volt_wload"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Amp&#47;Hour Tested</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn volt_amp_hr"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-offset-4 col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Surge Protection</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn surge_prot">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Model&#47;Qty.</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn model_qty"></div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Volt W&#47;A.C.</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn volt_wac"></div>
+                                                    </div>
+                                                </div>
+
+
+
+                                                <div class="col-xs-2">
+                                                    <div class="panel panel-default">
+                                                        <div class="panel-heading">
+                                                            <h3 class="panel-title">Batteries Marked Date</h3>
+                                                        </div>
+                                                        <div class="panel-body dyn volt_batt_date"></div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row header page_br">
+                <div class="col-xs-3">
+                    <img src="img/logo.png" height="68">
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center dyn property bold"></h4>
+                    <h4 class="text-center dyn quarter"></h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right dyn date"></h4>
+                    <h4 class="text-right">Page 4</h4>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div id="af" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Auxiliary Functions</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Door Holders</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn door_holders">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Quantity</li>
+                                                <li class="list-group-item dyn door_qty"></li>
+                                                <li class="list-group-item disabled">Voltage</li>
+                                                <li class="list-group-item dyn door_voltage"></li>
+                                                <li class="list-group-item disabled">Door Release</li>
+                                                <li class="list-group-item dyn door_release">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="col-xs-3">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">HVAC Shutdown</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn hvac_shutdown">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Auto Restart</li>
+                                                <li class="list-group-item dyn hvac_auto_restart">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                                <li class="list-group-item disabled">Fan Shutdown</li>
+                                                <li class="list-group-item dyn hvac_fan_shutdown">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="col-xs-3">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Smoke Management Control System</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn has_smoke_hatch">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Quantity</li>
+                                                <li class="list-group-item dyn smoke_hatch_qty"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-3">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Elevator Recall</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn elevator_recall">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn elevator_primary">Primary Floor
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                                <li class="list-group-item dyn elevator_secondary">Secondary Floor
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+
+
+                            <div class="row">
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Smoke Exhaust System</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn smoke_exhaust">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Quantity</li>
+                                                <li class="list-group-item dyn smoke_exhaust_qty"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Annunciator Panel</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn annunciator_panel_pf">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn annunciator_panel_led">L.E.D.
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                                <li class="list-group-item dyn annunciator_panel_graphic">Graphic
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                                <li class="list-group-item dyn annunciator_panel_lcd">L.C.D.
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                                <li class="list-group-item dyn annunciator_panel_other">Other
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Smoke Presurization</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn smoke_has_pres">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Quantity</li>
+                                                <li class="list-group-item dyn smoke_pres_qty"></li>
+                                                <li class="list-group-item disabled">Locations</li>
+                                                <li class="list-group-item dyn smoke_pres_loc"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div id="ada" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">ADA Booster Panel
+                                <span class="pull-right dyn has_ada_booster">
+                                    <span class="glyphicon"></span>
+                                    <span class="toggle"></span>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Power Source</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+
+
+
+
+
+                                                <div class="col-xs-4">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item disabled">C.B. Location</li>
+                                                        <li class="list-group-item dyn cb_location"></li>
+                                                        <li class="list-group-item disabled">Model&#47;Qty</li>
+                                                        <li class="list-group-item dyn cb_model_qty"></li>
+                                                        <li class="list-group-item disabled stop">Location(s)</li>
+                                                        <li class="list-group-item dyn cb_location_s stop"></li>
+                                                    </ul>
+                                                </div>
+
+
+
+                                                <div class="col-xs-2">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item disabled">Dedicated C.B.</li>
+                                                        <li class="list-group-item dyn cb_dedicated_cb">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </li>
+                                                        <li class="list-group-item disabled">Surge Prot.</li>
+                                                        <li class="list-group-item dyn cb_surge_prot">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </li>
+                                                        <li class="list-group-item disabled">Batteries</li>
+                                                        <li class="list-group-item dyn cb_batteries">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+
+
+
+
+                                                <div class="col-xs-3">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item disabled">Amp&#47;Hour Tested</li>
+                                                        <li class="list-group-item dyn cb_model_amp_hr"></li>
+                                                        <li class="list-group-item disabled">Volt W&#47;Load</li>
+                                                        <li class="list-group-item dyn cb_model_volt_load"></li>
+                                                        <li class="list-group-item disabled">Volt W&#47;A.C.</li>
+                                                        <li class="list-group-item dyn cb_model_volt_ac"></li>
+                                                    </ul>
+                                                </div>
+
+
+
+
+
+                                                <div class="col-xs-3">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item disabled">Syncronization</li>
+                                                        <li class="list-group-item dyn cb_syncronization">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </li>
+                                                        <li class="list-group-item disabled">Synch Module</li>
+                                                        <li class="list-group-item dyn cb_synch_module">
+                                                            <span class="glyphicon"></span>
+                                                            <span class="toggle"></span>
+                                                        </li>
+                                                        <li class="list-group-item disabled">Quantity</li>
+                                                        <li class="list-group-item dyn cb_sync_qty"></li>
+                                                    </ul>
+                                                </div>
+
+
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row header page_br">
+                <div class="col-xs-3">
+                    <img src="img/logo.png" height="68">
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center dyn property bold"></h4>
+                    <h4 class="text-center dyn quarter"></h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right dyn date"></h4>
+                    <h4 class="text-right">Page 5</h4>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div id="fp" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Fire Pump
+                                <span class="pull-right dyn fire_pump_m">
+                                    <span class="glyphicon"></span>
+                                    <span class="toggle"></span>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+
+                                <div class="col-xs-3">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Fire Pump</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn fire_pump">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn fire_pump_alarm">Alarm
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                                <li class="list-group-item dyn fire_pump_trouble">Trouble
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Fire Pump Running</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn fire_pump_running">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn fire_pump_running_alarm">Alarm
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                                <li class="list-group-item dyn fire_pump_running_trouble">Trouble
+                                                    <span class="badge badge-primary">
+                                                        <span class="glyphicon glyphicon-ok"></span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="col-xs-5">
+                                    <ul class="list-group">
+                                        <li class="list-group-item disabled">Fire Pump Or Pump Controller Trouble</li>
+                                        <li class="list-group-item dyn fire_pump_or">
+                                            <span class="glyphicon"></span>
+                                            <span class="toggle"></span>
+                                        </li>
+                                        <li class="list-group-item disabled">Fire Pump Power</li>
+                                        <li class="list-group-item dyn fire_pump_power">
+                                            <span class="glyphicon"></span>
+                                            <span class="toggle"></span>
+                                        </li>
+                                        <li class="list-group-item disabled">Fire Pump Auto Position</li>
+                                        <li class="list-group-item dyn fire_pump_auto">
+                                            <span class="glyphicon"></span>
+                                            <span class="toggle"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div id="sps" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Sprinkler System
+                                <span class="pull-right dyn sprinkler_sys">
+                                    <span class="glyphicon"></span>
+                                    <span class="toggle"></span>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Sprinkler System Properties</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-xs-4">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item dyn fire_pump_wet">Wet
+                                                            <span class="badge badge-primary">
+                                                                <span class="glyphicon glyphicon-ok"></span>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+
+                                                <div class="col-xs-4">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item dyn fire_pump_dry">Dry
+                                                            <span class="badge badge-primary">
+                                                                <span class="glyphicon glyphicon-ok"></span>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+
+
+                                                <div class="col-xs-4">
+                                                    <ul class="list-group">
+                                                        <li class="list-group-item dyn fire_pump_pre">Preaction
+                                                            <span class="badge badge-primary">
+                                                                <span class="glyphicon glyphicon-ok"></span>
+                                                            </span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div id="ves" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Voice Evacuation System
+                                <span class="pull-right dyn voice_yn">
+                                    <span class="glyphicon"></span>
+                                    <span class="toggle"></span>
+                                </span>
+                            </h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+
+
+                                <div class="col-xs-4">
+                                    <ul class="list-group">
+                                        <li class="list-group-item disabled">Quantities</li>
+                                        <li class="list-group-item dyn voice_qty"></li>
+                                        <li class="list-group-item disabled">Location</li>
+                                        <li class="list-group-item dyn voice_loc"></li>
+                                        <li class="list-group-item disabled">Page Select</li>
+                                        <li class="list-group-item dyn voice_page_sel">
+                                            <span class="glyphicon"></span>
+                                            <span class="toggle"></span>
+                                        </li>
+                                        <li class="list-group-item disabled">Pre-Recorded Message</li>
+                                        <li class="list-group-item dyn voice_message">
+                                            <span class="glyphicon"></span>
+                                            <span class="toggle"></span>
+                                        </li>
+                                        <li class="list-group-item disabled">Floor Above&#47;Floor Below Evacuation</li>
+                                        <li class="list-group-item dyn voice_above_below">
+                                            <span class="glyphicon"></span>
+                                            <span class="toggle"></span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Power Source</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Model</li>
+                                                <li class="list-group-item dyn voice_model"></li>
+                                                <li class="list-group-item disabled">Batteries</li>
+                                                <li class="list-group-item dyn voice_batteries">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                                <li class="list-group-item disabled">Quantity</li>
+                                                <li class="list-group-item dyn voice_power_qty"></li>
+                                                <li class="list-group-item disabled">Volt W&#47;Load</li>
+                                                <li class="list-group-item dyn voice_volt_load"></li>
+                                                <li class="list-group-item disabled">Volt W&#47;A.C.</li>
+                                                <li class="list-group-item dyn voice_volt_ac"></li>
+                                                <li class="list-group-item disabled">Amp&#47;Hour Results</li>
+                                                <li class="list-group-item dyn voice_amp_hr"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-4">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Amplifiers</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn voice_amp">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Wattage</li>
+                                                <li class="list-group-item dyn voice_amp_watt"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Firefighter Phones</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn voice_phones">
+                                                    <span class="glyphicon"></span>
+                                                    <span class="toggle"></span>
+                                                </li>
+                                            </ul>
+                                            <ul class="list-group">
+                                                <li class="list-group-item disabled">Quantity</li>
+                                                <li class="list-group-item dyn voice_phones_qty"></li>
+                                                <li class="list-group-item disabled">Locations</li>
+                                                <li class="list-group-item dyn voice_phones_locs"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row header page_br">
+                <div class="col-xs-3">
+                    <img src="img/logo.png" height="68">
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center dyn property bold"></h4>
+                    <h4 class="text-center dyn quarter"></h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right dyn date"></h4>
+                    <h4 class="text-right">Page 6</h4>
+                </div>
+            </div>
+
+
+            <div class="row header page_br">
+                <div class="col-xs-3">
+                    <img src="img/logo.png" height="68">
+                </div>
+                <div class="col-xs-6">
+                    <h4 class="text-center dyn property bold"></h4>
+                    <h4 class="text-center dyn quarter"></h4>
+                </div>
+                <div class="col-xs-3">
+                    <h4 class="text-right dyn date"></h4>
+                    <h4 class="text-right">Page 7</h4>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div id="dd" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Current Deficiencies</h2>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <table class="table table-bordered table-hover table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th width="20px">ID</th>
+                                                <th>Device Type</th>
+                                                <th>Vicinity</th>
+                                                <th>Location</th>
+                                                <th>Alarm</th>
+                                                <th>Trouble</th>
+                                                <th>Superv</th>
+                                                <th>Address</th>
+                                                <th>Zone</th>
+                                                <th>Status</th>
+                                                <th>Notes</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="devices_fails_tbody">
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+
+                                <div class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">Pictures</h3>
+                                        </div>
+                                        <div id="device_pics" class="panel-body">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div id="nr" class="col-xs-12">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">General Notations &amp; Recommendations</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <ul class="list-group">
+                                                <li class="list-group-item dyn summary_notes stop2"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div id="dh" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Deficiencies History</h2>
+                        </div>
+                        <div class="panel-body">
+                            <table id='devices_his' class="table table-bordered table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th id="hide_me_ID" width="20px">ID</th>
+                                        <th>Device Type</th>
+                                        <th>Vicinity</th>
+                                        <th>Location</th>
+                                        <th>Alarm</th>
+                                        <th>Trouble</th>
+                                        <th>Superv</th>
+                                        <th>Address</th>
+                                        <th>Zone</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="devices_history_tbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row">
+                <div id="ds" class="col-xs-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <h2 class="panel-title mainPanel">Devices</h2>
+                        </div>
+                        <div class="panel-body">
+                            <table id='devices' class="table table-bordered table-hover table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th width="20px">ID</th>
+                                        <th>Device Type</th>
+                                        <th>Vicinity</th>
+                                        <th>Location</th>
+                                        <th>Alarm</th>
+                                        <th>Trouble</th>
+                                        <th>Superv</th>
+                                        <th>Address</th>
+                                        <th>Zone</th>
+                                        <th>Status</th>
+                                        <th>Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="devicestbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <div id="add_all_model" class="modal" data-backdrop="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="add_all_btn" class="btn btn-success pull-right" type="button" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-ok"></span> Submit</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">
+                        <span class="glyphicon glyphicon-remove"></span> Discard</button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <label class="control-label">Date</label>
+                            <input id="addall_date" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Work Order Number</label>
+                            <input id="addall_WO" type="text" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="report_model" class="modal" data-backdrop="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="text_model_submit_btn" class="btn btn-success pull-right" type="button">
+                        <span class="glyphicon glyphicon-ok"></span> Submit</button>
+                    <button id="text_model_clear_btn" class="btn btn-danger pull-right" type="button">
+                        <span class="glyphicon glyphicon-remove"></span> Clear Input</button>
+                    <button id="btn_dis_model_rep" type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-remove"></span> Back</button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div id="form_txt" class="form-group">
+                            <input id="text_model_input" type="text" class="form-control submit_on_enter">
+                        </div>
+                        <div id="form_txtarea" class="form-group">
+                            <textarea id="textarea_model_input" class="form-control" rows="12"></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div id="editmod" class="modal" data-backdrop="false">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btn_add_picture" type="button" class="btn btn-primary pull-right">
+                        <span class="glyphicon glyphicon-camera"></span> Take Picture</button>
+                    <button id="btn_dis_model" type="button" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-remove"></span> Back</button>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div id="devid_form" class="form-group">
+                            <label class="control-label">ID</label>
+                            <input type="text" id="devid" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Device Type</label>
+                            <select id="typid" class="form-control"></select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Vicinity</label>
+                            <select id="vicid" class="form-control"></select>
+                            <div class="input-group">
+                                <input id="viccusin" type="text" class="form-control" placeholder="Add custom vicinity">
+                                <span class="input-group-btn">
+                                    <button id="viccusbtn" class="btn btn-primary" type="button">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Location</label>
+                            <input type="text" class="form-control submit_device_on_enter" id="locid">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Type of Alarm</label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="staal">Alarm
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="statr">Trouble
+                            </label>
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="stasu">Supervisory
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Address</label>
+                            <input type="text" class="form-control" id="addid">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Zone</label>
+                            <select id="zonid" class="form-control"></select>
+                            <div class="input-group">
+                                <input id="zoncusin" type="text" class="form-control" placeholder="Add custom zone">
+                                <span class="input-group-btn">
+                                    <button id="zoncusbtn" class="btn btn-primary" type="button">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div id="statusg" class="form-group">
+                            <label class="control-label">Status</label>
+                            <label class="radio-inline">
+                                <input type="radio" id="passr" name="inlineRadioOptions" value="Pass">PASS
+                            </label>
+
+                            <label class="radio-inline">
+                                <input type="radio" id="failr" name="inlineRadioOptions" value="Fail">FAIL
+                            </label>
+
+                            <label class="radio-inline">
+                                <input type="radio" id="noacr" name="inlineRadioOptions" value="No Access">NO ACCESS
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label">Notes</label>
+                            <textarea id="notid" style="resize:none;" class="form-control" rows="5"></textarea>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="delete_dev" type="button" class="btn btn-danger pull-left">
+                        <span class="glyphicon glyphicon-trash"></span> Delete</button>
+
+                    <button id="submod" type="button" class="btn btn-success">
+                        <span class="glyphicon glyphicon-ok"></span> Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/report.js"></script>
+    <script type="text/javascript" src="js/devices.js"></script>
+    <script type="text/javascript" src="js/initialize.js"></script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+
+    </script>
+</body>
+
+</html>
+
