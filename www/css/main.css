@@ -331,6 +331,11 @@ span.pull-right.dyn {
     margin-bottom: 15px;
 }
 
+    .dropdown-menu {
+        max-height: 600px;
+        overflow-y: scroll;
+    }
+
 @media (max-width: 767px) {
     .dropdown-menu {
         max-height: 600px;

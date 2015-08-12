@@ -2,16 +2,20 @@
 <html>
 
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8">
     <meta http-equiv="Content-Security-Policy">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>Boustris Inspection Report</title>
 
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css"> -->
     <!-- <link href="css/main_lDPI.css" rel="stylesheet" type="text/css" > -->
     <link href="css/main.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="./lib/jquery/dist/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -108,11 +112,13 @@
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a id="btn_set_date">
-                                <span class="glyphicon glyphicon-calendar"></span> Set Date to Today</a>
+                                <span class="glyphicon glyphicon-calendar"></span> Set Date to Today
+                            </a>
                         </li>
                         <li>
                             <a id="add_all_model_btn">
-                                <span class="glyphicon glyphicon-plus"></span> Add All Deficiencies To History</a>
+                                <span class="glyphicon glyphicon-plus"></span> Add All Deficiencies To History
+                            </a>
                         </li>
                     </ul>
                 </li>
@@ -2038,7 +2044,7 @@
                                 <span class="input-group-btn">
                                     <button id="viccusbtn" class="btn btn-primary" type="button">
                                         <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
+                                </button>
                                 </span>
                             </div>
                         </div>
@@ -2074,7 +2080,7 @@
                                 <span class="input-group-btn">
                                     <button id="zoncusbtn" class="btn btn-primary" type="button">
                                         <span class="glyphicon glyphicon-plus"></span>
-                                    </button>
+                                </button>
                                 </span>
                             </div>
                         </div>
@@ -2117,18 +2123,18 @@
 
 
 
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- // <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script> -->
+    <script type="text/javascript" src="./lib/jquery/dist/jquery.min.js"></script>
+    <!-- // <script type="text/javascript" src="js/bootstrap.min.js"></script> -->
+    <script type="text/javascript" src="./lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/report.js"></script>
     <script type="text/javascript" src="js/devices.js"></script>
     <script type="text/javascript" src="js/initialize.js"></script>
 
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript">
-        app.initialize();
-
+    app.initialize();
     </script>
 </body>
 
 </html>
-
