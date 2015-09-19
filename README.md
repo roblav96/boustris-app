@@ -1,1 +1,1 @@
-# Fire Alarm Testing and Inspection App
+# Phonegap Fire Alarm Testing and Inspection App
